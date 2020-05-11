@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+.orderWrapper {
+    height: 82vh;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    background: rgba(42, 44, 36, 0.41);
+}
+
+.photoOrderDiv {
+    clip-path: polygon(12% 0%, 100% 0, 100% 100%, 2% 100%);
+    background-image: url('../../../ordersWall.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.ordersCardsDiv {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.orderCards {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    width: 30rem;
+    height: 40rem;
+    box-shadow: 0.2rem 0.2rem 0.4rem black;
+    border-radius: 0.8rem;
+}
+
+.orderCardPhoto {
+    display: grid;
+    grid-template-rows: 4fr 0.7fr;
+    background: url('../../../mealBackg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+}
+
+.cardHeader {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    background-color: #2A2C24;
+    align-items: center;
+    justify-items: center;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+}
+
+.cardFooter {
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    border-bottom-right-radius: 0.8rem;
+}
+
+.dateFooter {
+    background-color: #2A2C24;
+    border-bottom-right-radius: 0.8rem;
+    clip-path: polygon(12% 0%, 100% 0, 100% 100%, 2% 100%);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.subHeadingLbl {
+    font-family: 'Allura', cursive;
+    color: white;
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.headingLbl {
+    color: white;
+    letter-spacing: 0.2rem;
+    font-size: 2.15rem;
+}
+
+/*-------------------------cardflip----------------------------------*/
+
+.flip-card {
+    background-color: transparent;
+    width: 30rem;
+    height: 40rem;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: all 2s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+
+/* Style the back side */
+
+.flip-card-back {
+    display: grid;
+    grid-template-rows: 0.6fr 1fr 1fr 1fr 1fr 1fr;
+    background: linear-gradient(to right top, rgb(159, 65, 19), rgb(219, 126, 20));
+    color: white;
+    transform: rotateY(180deg);
+    border-radius: 0.8rem;
+    box-shadow: 0.2rem 0.2rem 0.4rem black;
+}
+
+.backCardFileds {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1.4fr 1fr;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 0.05rem solid white;
+    margin: 0 1rem 0 1rem;
+}
+
+.backCardHeadingDiv{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.backCardHeading{
+    font-family: 'Allura', cursive;
+    font-size: 1.9rem;
+    font-weight: lighter;
+    letter-spacing: 0.15rem;
+}
+
+.mealICon {
+    width: 5em;
+    height: 3rem;
+}
+
+.mealLbl {
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    color: white;
+}
+
+.priceLbl {
+    font-size: 1.9rem;
+    color: white;
+    font-weight: 300;
+}
+
+.inputQunatiny {
+    border: none;
+    outline: none;
+    background-color: #2A2C24;
+    color: white;
+    text-align: center;
+    width: 3rem;
+    border-radius: 0.8rem;
+}
+
+.backCardBtnDiv {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.smallLbl {
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.1rem;
+}
+
+.addBtn {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.foodBagIcon {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    filter: drop-shadow(0.1rem 0.1rem 0.3rem #2A2C24);
+}
+
+.foodBagIcon:hover {
+    transform: scale(1.1);
+}
+
+.addFoodBtn {
+    width: 3rem;
+    height: 2rem;
+    background-color: #6CB120;
+}
+
+.addFoodBtn:hover {
+    outline: none;
+    border: 0.1rem solid #6CB120;
+    background-color: rgb(127, 209, 40);
+}
+
+.addBtnIcon {
+    width: 1.8rem;
+}
+
+.addSmall {
+    color: white;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.1rem;
+}

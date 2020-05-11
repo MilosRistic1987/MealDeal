@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+.choseCardsWrapper{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    background: linear-gradient(to right, rgb(184, 181, 181),white);
+    box-shadow: 0.2rem 0.2rem 0.4rem  black;
+    border-radius: 0.8rem;
+    width: 30rem;
+    height: 15rem;
+    margin-left: 3.6rem;
+}
+
+.votingDiv{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.voteIcon{
+cursor: pointer;
+}
+
+.chosenRestDiv{
+    display: grid;
+    grid-template-rows: 3fr 0.4fr 1fr;
+    clip-path: polygon(0 0,100% 0, 90% 100%,0 100%);
+    border-bottom-left-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+}
+
+.chosenRestLblDiv{
+    background: #2A2C24;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-bottom-left-radius: 0.8rem;
+
+}
+.voteSmall{
+    display: block;
+    color: #2A2C24;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    transform: translateX(1.2rem);
+    font-weight: 800;
+}
+
+.voteLbl{
+    color: #2A2C24;
+    font-size: 1.8rem;
+}
+
+.chosenrestLbl{
+    font-size: 0.8rem;
+    color: white;
+    letter-spacing: 0.1rem;
+}
+
+.restLabel{
+    color:#2A2C24;
+    font-family: 'Allura', cursive;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.restaurantTextDiv{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.restPhoto{
+    background: url('../../../restaurant.jpg');
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 0.8rem;
+}

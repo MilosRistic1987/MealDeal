@@ -1,0 +1,16 @@
+@keyframes AnimateHeading {
+    0% {
+        transform: scale(1);
+        filter: blur(0.2rem);
+    }
+
+    50%{
+        transform: scale(1.1);
+        filter: blur(0);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0.2rem);
+    }
+}

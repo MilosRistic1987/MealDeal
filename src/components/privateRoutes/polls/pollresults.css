@@ -1,0 +1,51 @@
+.pollResultsWrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 82vh;
+    background: rgba(42, 44, 36, 0.41);
+   
+}
+
+.pollResultsHeadingDiv{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.pollResultsHeading{
+    font-size: 1.6rem;
+    letter-spacing: 0.2rem;
+    color: #2A2C24;
+}
+
+.backgrDiv{
+    background: url('../../../pollbackgr.jpg');
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(0 0, 98% 0, 88% 100%, 0 100%);
+}
+
+.resultsWrapper{
+    display: grid;
+    grid-template-rows: 0.7fr 5fr 0.5fr 0.5fr;
+   
+}
+
+.btnsDivs{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.chosenCardList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.voteBtn:hover{
+    background-color:#48873E; 
+}
+
+.pollBtn:hover{
+    background-color:#982C2F;; 
+}

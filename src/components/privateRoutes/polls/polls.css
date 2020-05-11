@@ -1,0 +1,72 @@
+.pollWrapper{
+    display: grid;
+    grid-template-rows: 1fr 4fr 0.5fr;
+}
+
+.pollHeadings{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.clockWrapper{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.react-clock{
+    height: 100px !important;
+    width: 100px !important;
+}
+
+.dateWrapper{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.headingWrapper{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.cardList{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+.pollHeading{
+    text-align: center;
+    font-size: 2.7rem;
+    background: -webkit-linear-gradient(left, rgb(151, 42, 45), #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+}
+
+.pollHeadingSpan{
+    font-size: 3.5rem;
+    color:#972A2D;
+}
+
+.handShake{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.createNewPoll{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.newPollBtn{
+    width: 10rem;
+}
+
