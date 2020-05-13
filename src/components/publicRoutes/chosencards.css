@@ -72,7 +72,7 @@ cursor: pointer;
 }
 
 .restPhoto{
-    background: url('../../../restaurant.jpg');
+    background: url('../../restaurant.jpg');
     background-position: center;
     background-size: cover;
     border-top-left-radius: 0.8rem;

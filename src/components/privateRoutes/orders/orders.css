@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     background: rgba(42, 44, 36, 0.41);
+    overflow: hidden;
 }
 
 .photoOrderDiv {
@@ -11,6 +12,7 @@
     background-image: url('../../../ordersWall.jpg');
     background-position: center;
     background-size: cover;
+    
 }
 
 .ordersCardsDiv {
@@ -47,6 +49,7 @@
     justify-items: center;
     border-top-left-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
+  
 }
 
 .cardFooter {
@@ -62,6 +65,12 @@
     display: grid;
     align-items: center;
     justify-items: center;
+}
+
+.dateLbl{
+    color: white;
+    letter-spacing: 0.15rem;
+    font-size: 1rem;
 }
 
 .subHeadingLbl {
@@ -85,6 +94,7 @@
     width: 30rem;
     height: 40rem;
     perspective: 1000px;
+    
     /* Remove this if you don't want the 3D effect */
 }
 
@@ -95,8 +105,9 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: all 2s ease-in-out;
+    transition: all 2.5s ease-in-out;
     transform-style: preserve-3d;
+   
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -114,6 +125,7 @@
     -webkit-backface-visibility: hidden;
     /* Safari */
     backface-visibility: hidden;
+   
 }
 
 /* Style the front side (fallback if image is missing) */
@@ -217,6 +229,8 @@
     width: 3rem;
     height: 2rem;
     background-color: #6CB120;
+    border: none;
+    border-radius: 0.3rem;
 }
 
 .addFoodBtn:hover {

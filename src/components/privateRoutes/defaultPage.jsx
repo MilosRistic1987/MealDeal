@@ -5,16 +5,16 @@ import Poll from './polls/poll'
 import Orders from './orders/order'
 import Settings from './settings'
 import { elastic as Menu } from 'react-burger-menu'
-import './defaultPage.css'
-import PollResults from './polls/pollResults'
+import './defaultPage.css';
+import PollResults from '../publicRoutes/pollResults'
+import AllMeals from '../privateRoutes/orders/allMeal'
 
-const DefaultPage = () => {
-    const history=useHistory()
-    const [selectedRestaurants, setSelectedRestaurants]= useState([])
-    const[openMenu, setOpenMenu]=useState(false)
+
+const DefaultPage = (props) => {
+    const history = useHistory()
+    const [openMenu, setOpenMenu] = useState(false)
     var styles = {
-
-
+        
         bmMenu: {
             background: '#373a47',
             padding: '2.5em 1.5em 0',
@@ -25,10 +25,10 @@ const DefaultPage = () => {
             width: '100%',
             backgroundSize: ' cover',
             backgroundPosition: ' center',
-           
+
         },
 
-        bmItem:{
+        bmItem: {
             display: 'grid',
             gridTemplateColumns: '1fr 3fr',
             alignItems: 'center',
@@ -36,68 +36,79 @@ const DefaultPage = () => {
             marginBottom: '1.3rem',
             outline: 'none'
         }
-      
+
     }
-    const handleOpenMenu = () =>{
+    const handleOpenMenu = () => {
         setOpenMenu(false)
+       
     }
 
-    const  handleStateChange = (state)=> {
+    const handleLogout= () =>{
+        handleOpenMenu()
+        localStorage.removeItem('myUserInLocalStorage')
+        props.setSelectedRestaurants([])
+        history.push('/login')
+    }
+
+    const handleStateChange = (state) => {
         setOpenMenu(state.isOpen)
-      }
+    }
+
+
     return (
         <Router>
             <div className='header'>
                 <div className='headerLogo'>
                     <img className='logo' src='./foodlogo.png' alt='logo' ></img>
                 </div>
-               
-                    <Menu left styles={styles} isOpen={openMenu} onStateChange={(e) => handleStateChange(e)}>
-                        <div className='navFiled' >
-                            <div>
-                                <img className='navIcons' src='./polls.png' alt='icon' />
-                            </div>
-                            <div>
-                            <Link to='/polls' onClick={handleOpenMenu} >Polls</Link>
-                            </div>
-                        </div>
-                        <div className='navFiled'>
-                            <div>
-                                <img className='navIcons' src='./orders.png' alt='icon' />
-                            </div>
-                            <div>
-                                <Link to='/orders' onClick={handleOpenMenu}>Orders</Link>
-                            </div>
-                        </div>
-                        <div className='navFiled'>
-                            <div>
-                                <img className='navIcons' src='./settings.png' alt='icon' />
-                            </div>
-                            <div>
-                                <Link to='/settings' onClick={handleOpenMenu}>Settings</Link>
-                            </div>
-                        </div>
-                        <div className='navFiled'>
-                            <div>
-                                <img className='navIcons' src='./logout.png' alt='icon' />
-                            </div>
-                            <div>
-                                <Link to='/login' onClick={handleOpenMenu}>Logout</Link>
-                            </div>
-                        </div>
-                    </Menu>
 
-               
+                <Menu left styles={styles} isOpen={openMenu} onStateChange={(e) => handleStateChange(e)}>
+                    <div className='navFiled' >
+                        <div>
+                            <img className='navIcons' src='./polls.png' alt='icon' />
+                        </div>
+                        <div>
+                            <Link to='/polls' onClick={handleOpenMenu} >Polls</Link>
+                        </div>
+                    </div>
+                    <div className='navFiled'>
+                        <div>
+                            <img className='navIcons' src='./orders.png' alt='icon' />
+                        </div>
+                        <div>
+                            <Link to='/orders' onClick={handleOpenMenu}>Orders</Link>
+                        </div>
+                    </div>
+                    <div className='navFiled'>
+                        <div>
+                            <img className='navIcons' src='./settings.png' alt='icon' />
+                        </div>
+                        <div>
+                            <Link to='/settings' onClick={handleOpenMenu}>Settings</Link>
+                        </div>
+                    </div>
+                    <div className='navFiled'>
+                        <div>
+                            <img className='navIcons' src='./logout.png' alt='icon' />
+                        </div>
+                        <div>
+                            <Link to='/login' onClick={handleLogout}>Logout</Link>
+                        </div>
+                    </div>
+                </Menu>
             </div>
             <Switch>
-                <Route path='/login'>
+            <Route path='/polls'>
+                    <Poll selectedRestaurants={props.selectedRestaurants} setSelectedRestaurants={props.setSelectedRestaurants} />
+                </Route>
+                <Route path='/logout'>
                     <Login />
                 </Route>
-                <Route path='/polls'>
-                    <Poll selectedRestaurants={selectedRestaurants} setSelectedRestaurants={setSelectedRestaurants}/>
-                </Route>
                 <Route path='/pollresults'>
-                    <PollResults selectedRestaurants={selectedRestaurants} />
+                    <PollResults selectedRestaurants={props.selectedRestaurants} />
+                </Route>
+                <Route path='/allmeals'>
+                    <AllMeals  />
                 </Route>
                 <Route path='/orders'>
                     <Orders />
@@ -105,6 +116,7 @@ const DefaultPage = () => {
                 <Route path='/settings'>
                     <Settings />
                 </Route>
+               
             </Switch>
         </Router>
 

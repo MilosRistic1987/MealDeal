@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './orders.css'
 
 const Orders = () => {
+    const [time, setTime] = useState(new Date());
+    const temporaryTime = time.toLocaleDateString()
     return (
         <div className='orderWrapper'>
             <div className='ordersCardsDiv'>
@@ -22,11 +24,10 @@ const Orders = () => {
                                 <div className='cardFooter'>
                                     <div></div>
                                     <div className='dateFooter'>
-                                        <label className='dateLbl'>date</label>
+                                        <label className='dateLbl'>{temporaryTime}</label>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div className="flip-card-back">
                             <div className='backCardHeadingDiv'>
@@ -34,82 +35,82 @@ const Orders = () => {
                             </div>
                             <div className='backCardFileds'>
                                 <div className='backCardIconDiv'>
-                                    <img className='mealICon' src='./mealIcon.png' alt='mealIcon'/>
+                                    <img className='mealICon' src='./mealIcon.png' alt='mealIcon' />
                                 </div>
                                 <div className='backCardLblDiv'>
                                     <label className='mealLbl'>Meal Name</label>
                                 </div>
                                 <div className='priceDiv'>
-                                <label className='priceLbl'>350</label>
+                                    <label className='priceLbl'>350</label>
                                 </div>
                                 <div className='backCardBtnDiv'>
                                     <input className='inputQunatiny' type='number' defaultValue='1' min='0'></input>
                                     <small className='smallLbl'>quanity</small>
                                 </div>
                                 <div className='addDiv'>
-                                        <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag'/></button>
-                                        <small className='addSmall'>Add</small>
-                                    </div>
+                                    <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag' /></button>
+                                    <small className='addSmall'>Add</small>
+                                </div>
                             </div>
                             <div className='backCardFileds'>
                                 <div className='backCardIconDiv'>
-                                <img className='mealICon' src='./mealIcon.png' alt='mealIcon'/>
+                                    <img className='mealICon' src='./mealIcon.png' alt='mealIcon' />
                                 </div>
                                 <div className='backCardLblDiv'>
-                                <label className='mealLbl'>Meal Name</label>
+                                    <label className='mealLbl'>Meal Name</label>
                                 </div>
                                 <div className='priceDiv'>
-                                <label className='priceLbl'>350</label>
+                                    <label className='priceLbl'>350</label>
                                 </div>
                                 <div className='backCardBtnDiv'>
-                                <input className='inputQunatiny' type='number' defaultValue='1'  min='0'></input>
+                                    <input className='inputQunatiny' type='number' defaultValue='1' min='0'></input>
                                     <small className='smallLbl'>quanity</small>
                                 </div>
                                 <div className='addDiv'>
-                                <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag'/></button>
-                                        <small className='addSmall'>Add</small>
-                                    </div>
+                                    <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag' /></button>
+                                    <small className='addSmall'>Add</small>
+                                </div>
                             </div>
                             <div className='backCardFileds'>
                                 <div className='backCardIconDiv'>
-                                <img className='mealICon' src='./mealIcon.png' alt='mealIcon'/>
+                                    <img className='mealICon' src='./mealIcon.png' alt='mealIcon' />
                                 </div>
                                 <div className='backCardLblDiv'>
-                                <label className='mealLbl'>Meal Name</label>
+                                    <label className='mealLbl'>Meal Name</label>
                                 </div>
                                 <div className='priceDiv'>
-                                <label className='priceLbl'>350</label>
+                                    <label className='priceLbl'>350</label>
                                 </div>
                                 <div className='backCardBtnDiv'>
-                                <input className='inputQunatiny' type='number' defaultValue='1'  min='0'></input>
+                                    <input className='inputQunatiny' type='number' defaultValue='1' min='0'></input>
                                     <small className='smallLbl' >quanity</small>
                                 </div>
                                 <div className='addDiv'>
-                                <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag'/></button>
-                                        <small className='addSmall'>Add</small>
-                                    </div>
+                                    <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag' /></button>
+                                    <small className='addSmall'>Add</small>
+                                </div>
                             </div>
                             <div className='backCardFileds'>
                                 <div className='backCardIconDiv'>
-                                <img className='mealICon' src='./mealIcon.png' alt='mealIcon'/>
+                                    <img className='mealICon' src='./mealIcon.png' alt='mealIcon' />
                                 </div>
                                 <div className='backCardLblDiv'>
-                                <label className='mealLbl'>Meal Name</label>
+                                    <label className='mealLbl'>Meal Name</label>
                                 </div>
                                 <div className='priceDiv'>
-                                <label className='priceLbl'>350</label>
+                                    <label className='priceLbl'>350</label>
                                 </div>
                                 <div className='backCardBtnDiv'>
-                                <input className='inputQunatiny' type='number' defaultValue='1'  min='0'></input>
+                                    <input className='inputQunatiny' type='number' defaultValue='1' min='0'></input>
                                     <small className='smallLbl'>quanity</small>
                                 </div>
                                 <div className='addDiv'>
-                                <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag'/></button>
-                                        <small className='addSmall'>Add</small>
-                                    </div>
+                                    <button className='addFoodBtn'><img className='addBtnIcon' src='./foodbag.png' alt='foodbag' /></button>
+                                    <small className='addSmall'>Add</small>
+                                </div>
                             </div>
                             <div className='addBtn'>
-                                <img className='foodBagIcon' src='./ShopCart.png'alt='shopCart'/>
+                                <img className='foodBagIcon' src='./ShopCart.png' alt='shopCart' />
                             </div>
                         </div>
                     </div>

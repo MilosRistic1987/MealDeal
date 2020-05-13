@@ -3,7 +3,7 @@ import './chosencards.css'
 
 const ChosenCard = ({ restaurant, selected, setSelected, votesCount}) => {
     const src = (selected || selected === 0) && selected === restaurant.id? './votegreen.png' : './votered.png'; 
-    const votePercentage = votesCount === 0? 0 :(restaurant.votes/votesCount)*100
+    const votePercentage = votesCount === 0 ? 0 :(Math.round((restaurant.votes/votesCount)*100))
 
     const handleVote = () =>{
         setSelected(restaurant.id)

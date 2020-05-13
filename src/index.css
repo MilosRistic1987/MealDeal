@@ -47,6 +47,11 @@ code {
   height: 6rem;
 }
 
+.mealList{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .loginDiv{
   display: grid;
   grid-template-rows: 1.4fr 1fr 1fr 1fr 0.85fr;
@@ -73,7 +78,23 @@ form{
 
 .loginEl{
   display: block;
+  width: 80%;
+  background-color: #816C61;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  outline: none;
+  border-bottom: 0.1rem solid #2A2C24 ;
+  padding-bottom: 1rem;
 }
+
+.loginEl::placeholder{
+  color: white;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+}
+
 
 .loginBtn{
   color: white;
@@ -95,21 +116,19 @@ form{
 }
 
 input{
-  width: 80%;
-  background-color: #816C61;
-  border: none;
-  color: white;
-  padding: 0.5rem;
+ background-color:#2A2C24 ;
+ border: none;
+ color: white;
+ text-align:center;
+  padding: 0.3rem;
+  font-size: 1rem;
+  transition: all 1s ease-in-out;
   outline: none;
-  border-bottom: 0.1rem solid #2A2C24 ;
-  padding-bottom: 1rem;
 }
 
-input::placeholder{
-  color: white;
-  text-align: center;
-  font-size: 1.1rem;
-  letter-spacing: 0.2rem;
+input:focus{
+ transform: scale(1.05);
+ border-radius: 0.3rem;
 }
 
 

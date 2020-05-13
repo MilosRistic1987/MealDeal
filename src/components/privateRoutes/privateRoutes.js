@@ -10,9 +10,9 @@ const PrivateRoutes=({component:Component,...rest})=>{
   
     
     return(
-        <Route {...rest} render={props=>(
+        <Route {...rest} render={props=>(   
             isLogin()?
-            <Component {...props} />:
+            <Component {...rest} />:
             <Redirect to="/login"/>
     
            

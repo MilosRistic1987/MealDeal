@@ -43,7 +43,7 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
         const poll = {
             label,
             restaurants,
-            votes:restaurants
+            votes:[]
         }
 
         createNewPoll(poll).then(res => 
@@ -57,9 +57,12 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
     }
 
     const handleSelect = (e) => {
-        if (e.length <= 4) {
+        
+        if (e && e.length <= 4) {
             setSelectedRestaurants(e)
-        } else {
+        } else if(!e) {
+            setSelectedRestaurants([])
+        }else{
             return
         }
 
@@ -84,7 +87,7 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
                         </div>
                     </div>
 
-                    <Select options={unselectedRestaurants.map(el => { return { ...el, value: el.name, label: el.name } })} isMulti={true} onChange={handleSelect} value={selectedRestaurants} />
+                    <Select options={unselectedRestaurants.map(el => { return { ...el, value: el.name, label: el.name } })} isMulti={true} onChange={(e)=>handleSelect(e)} value={selectedRestaurants} />
                 </div>
                 <div className='clockWrapper'>
                     <Clock
