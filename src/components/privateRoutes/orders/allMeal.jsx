@@ -4,7 +4,7 @@ import { getMeals, getRestaurant } from '../../../services/API'
 import MealCard from './mealCard'
 import { useAlert } from 'react-alert'
 
-const AllMeals = ({ selectedMeals, setSelectedMeals, setRestaurantName, restaurantName }) => {
+const AllMeals = ({ selectedMeals, setSelectedMeals, setRestaurantName }) => {
     const alert = useAlert()
     const history = useHistory()
     let location = useLocation()
@@ -30,7 +30,7 @@ const AllMeals = ({ selectedMeals, setSelectedMeals, setRestaurantName, restaura
     return (
         <div className='allMealWrapper'>
             <div className='proccedBtnDiv'>
-                <button  className='procedBtn' onClick={() => { handleProcced() }}>Procced</button>
+                <button className='procedBtn' onClick={() => { handleProcced() }}>Procced</button>
             </div>
             <div className='container'>
                 {allMeals.map(el => <MealCard key={el.id} meal={el} selectedMeals={selectedMeals} setSelectedMeals={setSelectedMeals} />)}

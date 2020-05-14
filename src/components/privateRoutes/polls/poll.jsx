@@ -7,8 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-select'
 import RestaurantCard from './restaurantCard'
 import { useHistory } from 'react-router-dom';
-import { useAlert} from 'react-alert'
-
+import { useAlert } from 'react-alert'
 
 const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
     const history = useHistory()
@@ -37,36 +36,32 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
     const handlePollRequest = (e) => {
         const temporaryTime = time.toLocaleDateString()
         const label = `Meal Deal ${temporaryTime}`
-        const copySelectedRestaurants=[...selectedRestaurants]
-        const restaurants=copySelectedRestaurants.map(el=>el.id)
-      
+        const copySelectedRestaurants = [...selectedRestaurants]
+        const restaurants = copySelectedRestaurants.map(el => el.id)
+
         const poll = {
             label,
             restaurants,
-            votes:[],
-            active:true
+            votes: [],
+            active: true
         }
 
-        createNewPoll(poll).then(res => 
-            
+        createNewPoll(poll).then(res =>
             history.push({
                 pathname: '/pollresults',
                 search: `${res.data.id}`
             })
         )
-       
     }
 
     const handleSelect = (e) => {
-        
         if (e && e.length <= 4) {
             setSelectedRestaurants(e)
-        } else if(!e) {
+        } else if (!e) {
             setSelectedRestaurants([])
-        }else{
+        } else {
             return
         }
-
     }
 
     return (
@@ -88,7 +83,7 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
                         </div>
                     </div>
 
-                    <Select options={unselectedRestaurants.map(el => { return { ...el, value: el.name, label: el.name } })} isMulti={true} onChange={(e)=>handleSelect(e)} value={selectedRestaurants} />
+                    <Select options={unselectedRestaurants.map(el => { return { ...el, value: el.name, label: el.name } })} isMulti={true} onChange={(e) => handleSelect(e)} value={selectedRestaurants} />
                 </div>
                 <div className='clockWrapper'>
                     <Clock
@@ -97,7 +92,7 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
                 </div>
             </div>
             <div className='cardList'>{selectedRestaurants ? selectedRestaurants.map(el => <RestaurantCard restaurant={el} key={el.id} setSelectedRestaurants={setSelectedRestaurants} selectedRestaurants={selectedRestaurants} />) : null}</div>
-            <div className='createNewPoll'><button className='loginBtn newPollBtn' onClick={(e) => selectedRestaurants.length <2?alert.show("Please select at least two restaurants"):handlePollRequest(e)} >Create new Poll</button></div>
+            <div className='createNewPoll'><button className='loginBtn newPollBtn' onClick={(e) => selectedRestaurants.length < 2 ? alert.show("Please select at least two restaurants") : handlePollRequest(e)} >Create new Poll</button></div>
         </div>
     )
 }

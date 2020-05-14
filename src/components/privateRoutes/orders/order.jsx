@@ -7,10 +7,10 @@ const Orders = ({ selectedMeals, restaurantName }) => {
     const temporaryTime = time.toLocaleDateString()
     const [orderedMeals, setOrderedMelas] = useState([])
 
-    useEffect(()=>{
-        const orders = selectedMeals.map(el=>{return{...el, quantity:1, total:el.price}})
+    useEffect(() => {
+        const orders = selectedMeals.map(el => { return { ...el, quantity: 1, total: el.price } })
         setOrderedMelas(orders)
-    },[])
+    }, [])
 
     return (
         <div className='orderWrapper'>
@@ -46,7 +46,7 @@ const Orders = ({ selectedMeals, restaurantName }) => {
                             <div className='backCardHeadingDiv'>
                                 <h2 className='backCardHeading'>Order</h2>
                             </div>
-                            {selectedMeals.map(el => <OrderFiled filed={el} orderedMeals={orderedMeals} setOrderedMelas={setOrderedMelas}/>)}
+                            {selectedMeals.map(el => <OrderFiled filed={el} orderedMeals={orderedMeals} setOrderedMelas={setOrderedMelas} />)}
                             <div className='addBtn'>
                                 <img className='foodBagIcon' src='./ShopCart.png' alt='shopCart' />
                             </div>

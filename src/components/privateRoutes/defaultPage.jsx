@@ -9,14 +9,12 @@ import './defaultPage.css';
 import PollResults from '../publicRoutes/pollResults'
 import AllMeals from '../privateRoutes/orders/allMeal'
 
-
 const DefaultPage = (props) => {
     const history = useHistory()
     const [openMenu, setOpenMenu] = useState(false)
-    const [selectedMeals, setSelectedMeals] =useState([])
-    const [restaurantName,setRestaurantName]= useState('')
+    const [selectedMeals, setSelectedMeals] = useState([])
+    const [restaurantName, setRestaurantName] = useState('')
     var styles = {
-        
         bmMenu: {
             background: '#373a47',
             padding: '2.5em 1.5em 0',
@@ -27,9 +25,7 @@ const DefaultPage = (props) => {
             width: '100%',
             backgroundSize: ' cover',
             backgroundPosition: ' center',
-
         },
-
         bmItem: {
             display: 'grid',
             gridTemplateColumns: '1fr 3fr',
@@ -40,12 +36,12 @@ const DefaultPage = (props) => {
         }
 
     }
+
     const handleOpenMenu = () => {
         setOpenMenu(false)
-       
     }
 
-    const handleLogout= () =>{
+    const handleLogout = () => {
         handleOpenMenu()
         localStorage.removeItem('myUserInLocalStorage')
         props.setSelectedRestaurants([])
@@ -100,25 +96,24 @@ const DefaultPage = (props) => {
                 </Menu>
             </div>
             <Switch>
-            <Route path='/polls'>
+                <Route path='/polls'>
                     <Poll selectedRestaurants={props.selectedRestaurants} setSelectedRestaurants={props.setSelectedRestaurants} />
                 </Route>
                 <Route path='/logout'>
                     <Login />
                 </Route>
                 <Route path='/pollresults'>
-                    <PollResults  />
+                    <PollResults />
                 </Route>
                 <Route path='/allmeals'>
-                    <AllMeals selectedMeals={selectedMeals} setSelectedMeals={setSelectedMeals} restaurantName={restaurantName} setRestaurantName={setRestaurantName}/>
+                    <AllMeals selectedMeals={selectedMeals} setSelectedMeals={setSelectedMeals} restaurantName={restaurantName} setRestaurantName={setRestaurantName} />
                 </Route>
-                <Route  path='/orders'>
+                <Route path='/orders'>
                     <Orders selectedMeals={selectedMeals} restaurantName={restaurantName} />
                 </Route>
                 <Route path='/settings'>
                     <Settings />
                 </Route>
-               
             </Switch>
         </Router>
 

@@ -3,14 +3,11 @@ import './mealCard.css'
 
 const MealCard = ({ meal, setSelectedMeals, selectedMeals }) => {
     const [selectedMeal, setSelectedMeal] = useState(false)
-
-
     const handeChecked = () => {
         setSelectedMeal(!selectedMeal)
         const orderedMeals = !selectedMeal ? [...selectedMeals, meal] : [...selectedMeals].filter(el => el.id !== meal.id)
         setSelectedMeals(orderedMeals)
     }
-
 
     return (
 

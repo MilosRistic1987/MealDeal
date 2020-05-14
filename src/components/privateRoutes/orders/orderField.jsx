@@ -1,9 +1,7 @@
 import './orders.css'
 import React from 'react';
 
-
 const OrderFiled = ({ filed, orderedMeals, setOrderedMelas }) => {
-    console.log(filed)
     let { title, price, id } = filed
     const handleQuantity = (e) => {
         const orderedMealsCopy = [...orderedMeals]
