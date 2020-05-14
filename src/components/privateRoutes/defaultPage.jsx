@@ -107,7 +107,7 @@ const DefaultPage = (props) => {
                     <Login />
                 </Route>
                 <Route path='/pollresults'>
-                    <PollResults selectedRestaurants={props.selectedRestaurants} />
+                    <PollResults  />
                 </Route>
                 <Route path='/allmeals'>
                     <AllMeals selectedMeals={selectedMeals} setSelectedMeals={setSelectedMeals} restaurantName={restaurantName} setRestaurantName={setRestaurantName}/>

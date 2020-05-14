@@ -34,7 +34,6 @@ const getPolls = () => {
 
 
 const updatePolls = (id, pollDetail) => {
-    console.log(pollDetail, id)
     return axios.patch(`${baseUrl}Poll/${id}`, pollDetail)
 }
 

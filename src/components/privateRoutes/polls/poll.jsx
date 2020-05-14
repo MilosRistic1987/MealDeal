@@ -43,7 +43,8 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
         const poll = {
             label,
             restaurants,
-            votes:[]
+            votes:[],
+            active:true
         }
 
         createNewPoll(poll).then(res => 

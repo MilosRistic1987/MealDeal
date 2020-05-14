@@ -25,10 +25,10 @@ const MealCard = ({ meal, setSelectedMeals, selectedMeals }) => {
                 <div className="content">
                     <label className='lablInfo'>description: {meal.description}</label>
                     <label className='lablInfo'>price: {meal.price} RSD</label>
-                    <label className='lablInfo'>available: {meal.available = meal.available ? 'available' : 'not available'} </label>
+                    <label className='lablInfo'>available: {meal.available ? 'available' : 'not available'} </label>
                     <div className='inputSmallDiv'>
                         <div><small className='smallInpt'>order</small></div>
-                        <div><input type='checkbox' onClick={()=>handeChecked()}/></div>
+                        <div><input type='checkbox' disabled={!meal.available} onClick={() => handeChecked()} /></div>
                     </div>
                 </div>
             </div>

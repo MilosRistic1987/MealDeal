@@ -9,7 +9,12 @@ const Orders = ({ selectedMeals, restaurantName }) => {
     return (
         <div className='orderWrapper'>
             <div className='ordersCardsDiv'>
-                <div></div>
+                <div className='totalOrderWrapper'>
+                    <div className='totalOrderCard'>
+                        <div className='colorOrderDiv'></div>
+                        <div className='orderInfoDiv'></div>
+                    </div>
+                </div>
                 <div className="flip-card">
                     <div className="flip-card-inner">
                         <div className='orderCards flip-card-front'>

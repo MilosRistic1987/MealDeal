@@ -12,7 +12,6 @@
     background-image: url('../../../ordersWall.jpg');
     background-position: center;
     background-size: cover;
-    
 }
 
 .ordersCardsDiv {
@@ -149,6 +148,31 @@
     justify-items: center;
     border-bottom: 0.05rem solid white;
     margin: 0 1rem 0 1rem;
+}
+
+.totalOrderCard{
+    width: 20rem;
+    height: 25rem;
+    background-color: white;
+    border-radius: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    box-shadow: 0.1rem 0.1rem 0.25rem black;
+  
+}
+
+.colorOrderDiv{
+    background: #2A2C24;
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+}
+
+.orderInfoDiv{
+    margin-left: 1rem;
+    border-left: 0.1rem solid #2A2C24;
+    height: 80%;
+    display: grid;
+    align-self: center;
 }
 
 .backCardHeadingDiv{

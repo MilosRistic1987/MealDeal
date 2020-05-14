@@ -6,12 +6,13 @@ import { getPoll, updateVotes, createVotes, updatePolls } from '../../services/A
 
 
 const PollResults = () => {
-    const history=useHistory()
+    const history = useHistory()
     const [selected, setSelected] = useState(null)
     const [restaurants, setRestaurants] = useState([])
     const [allVotes, setAllVotes] = useState([])
     const [votesCount, setVotesCount] = useState(0)
     const [pollName, setPollName] = useState('')
+    const [active, setActive] = useState(true)
     let location = useLocation()
     const [pollId, setPollId] = useState(location.search.replace("?", ''))
     useEffect(() => {
@@ -26,12 +27,13 @@ const PollResults = () => {
             setRestaurants(allRestaurants)
             setVotesCount(counter)
             setPollName(res.data.label)
-            setAllVotes(votes)
-            
+            // setAllVotes(votes)
+            setActive(res.data.active)
+
         })
         setPollId(location.search.replace("?", ''))
 
-    }, [location, allVotes]);
+    }, [location, allVotes, pollId]);
 
     useEffect(() => {
         getPoll(pollId).then(res => {
@@ -48,12 +50,13 @@ const PollResults = () => {
         const votesCopy = [...allVotes]
         const restaurantVote = votesCopy.find(el => el.restaurantId === selected)
         const restaurantVotes = votesCopy.map(el => el.id)
+        let allVotesCopy = [...allVotes]
         if (!restaurantVote) {
             vote = { restaurantId: selected, votes: 1 }
 
             createVotes(vote).then(res => {
                 const id = res.data.id
-                updatePolls(pollId, { votes: [...restaurantVotes, id] }).then(result => setAllVotes([...allVotes, res.data]))
+                updatePolls(pollId, { votes: [...restaurantVotes, id] }).then(result => setAllVotes([...allVotesCopy.filter(el => el.restaurantId !== res.data.restaurantId), res.data]))
             })
 
         } else {
@@ -61,16 +64,19 @@ const PollResults = () => {
             vote = { restaurantId: selected, votes: restaurantVote.votes + 1 }
             updateVotes(id, vote).then(res => {
                 const idPoll = res.data.id
-                updatePolls(pollId, { votes: [...restaurantVotes, idPoll] }).then(result => setAllVotes([...allVotes, res.data]))
+                updatePolls(pollId, { votes: [...restaurantVotes, idPoll] }).then(result => setAllVotes([...allVotesCopy.filter(el => el.restaurantId !== res.data.restaurantId), res.data]))
             })
         }
 
     }
-    const getWinner = (e) =>{
-        console.log(allVotes, 'allVotes')
-        const winnerRestaurantId = [...allVotes].reduce((prev, current) => (prev.votes > current.votes) ? prev.restaurantId : current.restaurantId)
-        console.log(winnerRestaurantId, 'pobednikId')
-        
+    const getWinner = (e) => {
+        let votesCopy = [...allVotes]
+        const restaurantsSorted = votesCopy.sort((a, b) => {
+            return b.votes - a.votes;
+        })
+        const [first] = restaurantsSorted
+        const winnerRestaurantId = first.restaurantId
+        updatePolls(pollId, { active: false })
 
         history.push({
             pathname: '/allmeals',
@@ -88,12 +94,12 @@ const PollResults = () => {
                 <div className='chosenCardList'>
                     {restaurants.map(el => <ChosenCard restaurant={el} selected={selected} setSelected={setSelected} key={el.id} votesCount={votesCount} />)}
                 </div>
-                <div className='btnsDivs'>
+                {active ? <div className='btnsDivs'>
                     <button className='voteBtn loginBtn ' onClick={() => handleVote()}>Vote</button>
-                </div>
-                <div className='btnsDivs'>
+                </div> : null}
+                {localStorage.getItem('myUserInLocalStorage') && active ? <div className='btnsDivs'>
                     <button className='pollBtn loginBtn' onClick={(e) => getWinner(e)}>End Poll</button>
-                </div>
+                </div> : null}
             </div>
 
         </div>
