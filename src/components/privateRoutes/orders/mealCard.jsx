@@ -1,40 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './mealCard.css'
 
-const MealCard = ({ meal }) => {
+const MealCard = ({ meal, setSelectedMeals, selectedMeals }) => {
+    const [selectedMeal, setSelectedMeal] = useState(false)
+
+
+    const handeChecked = () => {
+        setSelectedMeal(!selectedMeal)
+        const orderedMeals = !selectedMeal ? [...selectedMeals, meal] : [...selectedMeals].filter(el => el.id !== meal.id)
+        setSelectedMeals(orderedMeals)
+    }
 
 
     return (
-        <div className='cardWrapp'>
-            <div className='mealcard'>
-                <div className='mealTextWrapp'>
-                    <div className='checkboxDiv'>
-                        <div>
-                            <input type="checkbox" id="orderBtn" name="Order" />
-                            <small className='chBtnSmall'>Order</small>
-                        </div>
-                    </div>
-                    <div className='mealLblDiv'>
-                        <div className='infoDiv'>
-                            <label className='mealInfoLbl'>{meal.title}</label>
-                        </div>
-                        <div className='infoDiv'>
-                            <label className='mealInfoLbl'>{meal.price}</label>
-                        </div>
-                        <div className='infoDiv'>
-                            <label className='mealInfoLbl'>{meal.description}</label>
-                        </div>
-                        <div className='infoDiv'>
-                            <label className='mealInfoLbl'>{meal.available = meal.available ? 'available' : 'not available'}</label>
-                        </div>
 
-                    </div>
+        <div className="mealCard">
+            <div className="face face1">
+                <div className="content">
+                    <img src="./mealCardIcon.png" alt='mealCardIcon' />
+                    <h3>{meal.title}</h3 >
                 </div>
-                <div className='photoMealDeal'>
-                    <img className='pizza' src='./pizza.jpg' alt='pizza' />
+            </div>
+            <div className="face face2">
+                <div className="content">
+                    <label className='lablInfo'>description: {meal.description}</label>
+                    <label className='lablInfo'>price: {meal.price} RSD</label>
+                    <label className='lablInfo'>available: {meal.available = meal.available ? 'available' : 'not available'} </label>
+                    <div className='inputSmallDiv'>
+                        <div><small className='smallInpt'>order</small></div>
+                        <div><input type='checkbox' onClick={()=>handeChecked()}/></div>
+                    </div>
                 </div>
             </div>
         </div>
+
     )
 }
 

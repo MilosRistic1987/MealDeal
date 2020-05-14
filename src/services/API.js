@@ -23,16 +23,19 @@ const updateVotes = (id, vote) => {
     return axios.put(`${baseUrl}Vote/${id}`, vote)
 }
 
+const getRestaurant = (id) => {
+    return axios.get(`${baseUrl}Restaurant/${id}`)
+}
+
 
 const getPolls = () => {
     return axios.get(`${baseUrl}Poll`)
 }
 
 
-
-const updatePolls = (id,pollDetail) => {
+const updatePolls = (id, pollDetail) => {
     console.log(pollDetail, id)
-    return axios.patch(`${baseUrl}Poll/${id}`,pollDetail)
+    return axios.patch(`${baseUrl}Poll/${id}`, pollDetail)
 }
 
 const getPoll = (id) => {
@@ -43,4 +46,4 @@ const createNewPoll = (poll) => {
     return axios.post(`${baseUrl}Poll`, poll)
 }
 
-export { getRestaurants, getMeals, getVotes, getPolls, createNewPoll, getPoll, createVotes, updateVotes,updatePolls }
+export { getRestaurants, getMeals, getVotes, getPolls, createNewPoll, getPoll, createVotes, updateVotes, updatePolls, getRestaurant }

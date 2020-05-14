@@ -49,7 +49,36 @@ code {
 
 .mealList{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr ;
+}
+
+.allMealWrapper{
+  display: grid;
+  grid-template-rows: 0.5fr 5fr;
+  align-items: center;
+  justify-items: center;
+  background-color:#2A2C24;
+  height: 82vh;
+}
+
+.procedBtn{
+  background-color: rgb(45, 160, 45);
+  padding: 0.5rem;
+  color: white;
+  letter-spacing: 0.1rem;
+  border: 0.05rem solid white;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  width: 10rem;
+  outline: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.procedBtn:hover{
+  transform: scale(1.08);
+  background-color: rgb(65, 202, 65);
+  border: 0.1rem solid white;
+
 }
 
 .loginDiv{

@@ -67,7 +67,9 @@ const PollResults = () => {
 
     }
     const getWinner = (e) =>{
-        const winnerRestaurantId = allVotes.reduce((prev, current) => (prev.y > current.y) ? prev.restaurantId : current.restaurantId)
+        console.log(allVotes, 'allVotes')
+        const winnerRestaurantId = [...allVotes].reduce((prev, current) => (prev.votes > current.votes) ? prev.restaurantId : current.restaurantId)
+        console.log(winnerRestaurantId, 'pobednikId')
         
 
         history.push({

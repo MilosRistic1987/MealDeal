@@ -170,13 +170,13 @@
 }
 
 .mealLbl {
-    font-size: 1.6rem;
+    font-size: 0.92rem;
     letter-spacing: 0.2rem;
     color: white;
 }
 
 .priceLbl {
-    font-size: 1.9rem;
+    font-size: 1.25rem;
     color: white;
     font-weight: 300;
 }
@@ -231,6 +231,7 @@
     background-color: #6CB120;
     border: none;
     border-radius: 0.3rem;
+    cursor: pointer;
 }
 
 .addFoodBtn:hover {

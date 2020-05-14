@@ -13,6 +13,8 @@ import AllMeals from '../privateRoutes/orders/allMeal'
 const DefaultPage = (props) => {
     const history = useHistory()
     const [openMenu, setOpenMenu] = useState(false)
+    const [selectedMeals, setSelectedMeals] =useState([])
+    const [restaurantName,setRestaurantName]= useState('')
     var styles = {
         
         bmMenu: {
@@ -108,10 +110,10 @@ const DefaultPage = (props) => {
                     <PollResults selectedRestaurants={props.selectedRestaurants} />
                 </Route>
                 <Route path='/allmeals'>
-                    <AllMeals  />
+                    <AllMeals selectedMeals={selectedMeals} setSelectedMeals={setSelectedMeals} restaurantName={restaurantName} setRestaurantName={setRestaurantName}/>
                 </Route>
-                <Route path='/orders'>
-                    <Orders />
+                <Route  path='/orders'>
+                    <Orders selectedMeals={selectedMeals} restaurantName={restaurantName} />
                 </Route>
                 <Route path='/settings'>
                     <Settings />
