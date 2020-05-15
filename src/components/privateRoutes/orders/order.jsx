@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './orders.css'
 import OrderFiled from './orderField'
 import TotalOrderedMeal from './totalOrderedMeal'
+import ReactExport from "react-data-export";
+
+const ExcelFile = ReactExport.ExcelFile;
+const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+const ExcelColumn = ReactExport.ExcelFile.ExcelColumn
 
 const Orders = ({ selectedMeals, restaurantName }) => {
     const [time, setTime] = useState(new Date());
     const temporaryTime = time.toLocaleDateString()
     const [orderedMeals, setOrderedMelas] = useState([])
     const [totalOrderedMeals, setTotalOrderedMeals] = useState([])
+    const [excelTotalOrderedMeals, setExcelTotalOrderedMeals] = useState([])
     const [total, setTotal] = useState('')
 
     useEffect(() => {
@@ -17,10 +23,14 @@ const Orders = ({ selectedMeals, restaurantName }) => {
     const handleOrder = () => {
         const copyOrderedMeals = [...orderedMeals]
         let counter = 0;
+        let title= 'Total Price'
+      
         setTotalOrderedMeals(copyOrderedMeals)
-        copyOrderedMeals.forEach(el =>
-            counter += el.total
+        copyOrderedMeals.forEach(el =>{
+            counter += el.total;
+        }             
         )
+        setExcelTotalOrderedMeals([...copyOrderedMeals, {title,total:counter}])
         setTotal(counter)
     }
 
@@ -32,8 +42,15 @@ const Orders = ({ selectedMeals, restaurantName }) => {
                         <div className='colorOrderDiv'>
                         </div>
                         <div className='orderInfoDiv'>{totalOrderedMeals.map(order => <TotalOrderedMeal order={order} />)}
-                        <div className='totalOrderedField'><label>Total</label><label>{total}</label></div>
-                        <div className='totalOrderedField'><button>Order</button><button>Download</button></div>
+                            <div className='totalOrderedField'><label>Total</label><label>{total}</label></div>
+                            <div className='totalOrderedField'><button>Order</button><ExcelFile element={<button>Download</button>}>
+                                <ExcelSheet data={excelTotalOrderedMeals} name="Meals">
+                                    <ExcelColumn label="Title" value="title" />
+                                    <ExcelColumn label="Price" value="price" />
+                                    <ExcelColumn label="Quantity" value="quantity" />
+                                    <ExcelColumn label="Total" value="total" />
+                                </ExcelSheet>
+                            </ExcelFile></div>
                         </div>
 
                     </div>
