@@ -30,6 +30,13 @@
     border-radius: 0.8rem;
 }
 
+.totalOrderedField{
+display: grid;
+grid-template-columns: 1fr 1fr;
+align-items: center;
+justify-items: center;
+}
+
 .orderCardPhoto {
     display: grid;
     grid-template-rows: 4fr 0.7fr;

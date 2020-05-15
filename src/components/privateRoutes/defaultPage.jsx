@@ -8,6 +8,7 @@ import { elastic as Menu } from 'react-burger-menu'
 import './defaultPage.css';
 import PollResults from '../publicRoutes/pollResults'
 import AllMeals from '../privateRoutes/orders/allMeal'
+import AllPolls from './polls/allPolls'
 
 const DefaultPage = (props) => {
     const history = useHistory()
@@ -66,7 +67,15 @@ const DefaultPage = (props) => {
                             <img className='navIcons' src='./polls.png' alt='icon' />
                         </div>
                         <div>
-                            <Link to='/polls' onClick={handleOpenMenu} >Polls</Link>
+                            <Link to='/home' onClick={handleOpenMenu} >Home</Link>
+                        </div>
+                    </div>
+                    <div className='navFiled' >
+                        <div>
+                            <img className='navIcons' src='./allPolls.png' alt='icon' />
+                        </div>
+                        <div>
+                            <Link to='/allpolls' onClick={handleOpenMenu} >All Polls</Link>
                         </div>
                     </div>
                     <div className='navFiled'>
@@ -96,14 +105,15 @@ const DefaultPage = (props) => {
                 </Menu>
             </div>
             <Switch>
-                <Route path='/polls'>
-                    <Poll selectedRestaurants={props.selectedRestaurants} setSelectedRestaurants={props.setSelectedRestaurants} />
-                </Route>
+               
                 <Route path='/logout'>
                     <Login />
                 </Route>
                 <Route path='/pollresults'>
                     <PollResults />
+                </Route>
+                <Route path='/allpolls'>
+                    <AllPolls />
                 </Route>
                 <Route path='/allmeals'>
                     <AllMeals selectedMeals={selectedMeals} setSelectedMeals={setSelectedMeals} restaurantName={restaurantName} setRestaurantName={setRestaurantName} />
@@ -113,6 +123,9 @@ const DefaultPage = (props) => {
                 </Route>
                 <Route path='/settings'>
                     <Settings />
+                </Route>
+                <Route  exact path='/home'>
+                    <Poll selectedRestaurants={props.selectedRestaurants} setSelectedRestaurants={props.setSelectedRestaurants} />
                 </Route>
             </Switch>
         </Router>

@@ -14,7 +14,6 @@ const getVotes = () => {
     return axios.get(`${baseUrl}Vote`)
 }
 
-
 const createVotes = (vote) => {
     return axios.post(`${baseUrl}Vote`, vote)
 }
@@ -28,8 +27,8 @@ const getRestaurant = (id) => {
 }
 
 
-const getPolls = () => {
-    return axios.get(`${baseUrl}Poll`)
+const getPollsPerUser = (user) => {
+    return axios.get(`${baseUrl}Poll?user=${user}`)
 }
 
 
@@ -45,4 +44,4 @@ const createNewPoll = (poll) => {
     return axios.post(`${baseUrl}Poll`, poll)
 }
 
-export { getRestaurants, getMeals, getVotes, getPolls, createNewPoll, getPoll, createVotes, updateVotes, updatePolls, getRestaurant }
+export { getRestaurants, getMeals, getVotes, getPollsPerUser, createNewPoll, getPoll, createVotes, updateVotes, updatePolls, getRestaurant }

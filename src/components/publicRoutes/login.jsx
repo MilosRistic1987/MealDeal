@@ -35,7 +35,7 @@ const Login = () => {
                     e.preventDefault();
                     const findUsers = userData.find(el => el.username === username && el.password === password)
                     findUsers ? setUserToLocalStorage({ username: username, password: password }) ||
-                        history.push("/polls") : alert.show("User does not exist")
+                        history.push("/home") : alert.show("User does not exist")
 
 
                 }}>

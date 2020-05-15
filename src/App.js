@@ -28,7 +28,7 @@ function App() {
         <Switch>
           <PublicRoutes component={Login} path='/login' />
           <PublicRoutes component={PollResults} path='/pollresults' />
-          <PrivateRoutes component={DefaultPage} path='/polls' selectedRestaurants={selectedRestaurants} setSelectedRestaurants={setSelectedRestaurants} />
+          <PrivateRoutes component={DefaultPage} path='/home' selectedRestaurants={selectedRestaurants} setSelectedRestaurants={setSelectedRestaurants} />
           <Redirect from='/' to='login' />
         </Switch>
       </BrowserRouter>

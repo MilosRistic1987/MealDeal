@@ -23,7 +23,6 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
             1000
         );
         getRestaurants().then(res => {
-
             setUnselectedRestaurants(res.data.data);
         })
     }, []);
@@ -43,7 +42,8 @@ const Poll = ({ selectedRestaurants, setSelectedRestaurants }) => {
             label,
             restaurants,
             votes: [],
-            active: true
+            active: true,
+            user:localStorage.getItem('myUserInLocalStorage')
         }
 
         createNewPoll(poll).then(res =>
