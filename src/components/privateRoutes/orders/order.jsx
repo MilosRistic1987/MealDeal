@@ -42,8 +42,8 @@ const Orders = ({ selectedMeals, restaurantName }) => {
                         <div className='colorOrderDiv'>
                         </div>
                         <div className='orderInfoDiv'>{totalOrderedMeals.map(order => <TotalOrderedMeal order={order} />)}
-                            <div className='totalOrderedField'><label>Total</label><label>{total}</label></div>
-                            <div className='totalOrderedField'><button>Order</button><ExcelFile element={<button>Download</button>}>
+                            <div className='totalOrderedField'><label className='fullPriceLbl'>Total</label><label className='fullPriceTotalLbl' >{total} RSD</label></div>
+                            <div className='totalOrderedField'><button className='orderBtns'>Order</button><ExcelFile element={<button className='orderBtns'>Download</button>}>
                                 <ExcelSheet data={excelTotalOrderedMeals} name="Meals">
                                     <ExcelColumn label="Title" value="title" />
                                     <ExcelColumn label="Price" value="price" />

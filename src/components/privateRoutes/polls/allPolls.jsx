@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { getPollsPerUser } from '../../../services/API'
+import './pollFiled.css'
 import { useEffect } from 'react';
+import PollFiled from './pollFiled'
 
 const AllPolls = () => {
     const user = localStorage.getItem('myUserInLocalStorage')
@@ -11,8 +13,8 @@ const AllPolls = () => {
     }, [])
 
     return (
-        <div>
-          {allPollsPerUser.map(poll=><h1>{poll.label}</h1>)}  
+        <div className='allPollsWrapper'>
+          {allPollsPerUser.map(poll=><PollFiled poll={poll}/>)}  
         </div>
     )
 }
